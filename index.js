@@ -44,9 +44,7 @@ const tick = () => {
     const url = 'https://www.reddit.com/r/' + sub + '/new/.json'
     axios.get(url).then(response => {
       const latestPost = response.data.data.children[0].data
-      const previousResponseId = loggedLatestPostsIds[sub] ?
-          loggedLatestPostsIds[sub] :
-          null
+      const previousResponseId = loggedLatestPostsIds[sub] ? loggedLatestPostsIds[sub] : null
       if (previousResponseId !== latestPost.id) {
         const link = 'https://www.reddit.com' + latestPost.permalink
         notifyForSub(sub, latestPost.title, link)
