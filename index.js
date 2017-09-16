@@ -10,11 +10,13 @@ const diskStatePath = __dirname + '/STATE'
 
 const notifyForSub = (sub, latestPostTitle, latestPostUrl) => {
   console.log('Notifying for sub "' + sub + '"')
-  notifier.notify({
+  const me = notifier.notify({
     title: '/r/' + sub + ' has a new post',
     message: 'Click to see:\n' + latestPostTitle,
-    wait: true
-  }).on('click', () => {
+    wait: true,
+    open: latestPostUrl
+  })
+  me.on('click', () => {
     opn(latestPostUrl, {
       app: ['chrome']
     })
