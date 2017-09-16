@@ -8,7 +8,7 @@ $ cd reddit-notifications
 $ yarn
 ```
 
-## Using
+## Use
 #### Single subreddit
 ```
 $ node index.js funny 
