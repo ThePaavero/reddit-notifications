@@ -14,9 +14,7 @@ const notifyForSub = (sub, latestPostTitle, latestPostUrl) => {
   const me = notifier.notify({
     title: '/r/' + sub + ' has a new post',
     message: 'Click to see:\n' + latestPostTitle,
-    wait: true,
-    timeout: 60,
-    open: latestPostUrl
+    wait: true
   })
   me.on('click', () => {
     if (urlsClicked.indexOf(latestPostUrl) > -1) {
