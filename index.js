@@ -15,6 +15,7 @@ const notifyForSub = (sub, latestPostTitle, latestPostUrl) => {
     title: '/r/' + sub + ' has a new post',
     message: 'Click to see:\n' + latestPostTitle,
     wait: true,
+    timeout: 60,
     open: latestPostUrl
   })
   me.on('click', () => {
