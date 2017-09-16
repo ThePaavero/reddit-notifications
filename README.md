@@ -15,5 +15,5 @@ $ node index.js funny
 ```
 #### Multiple subreddits
 ```
-$ node index.js funny, interestingasfuck, programming
+$ node index.js funny,interestingasfuck,programming
 ```
