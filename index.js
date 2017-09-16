@@ -1,5 +1,6 @@
 const axios = require('axios')
 const notifier = require('node-notifier')
+const opn = require('opn')
 
 const subs = process.argv[2].split(',').map(sub => sub.trim())
 const responses = {}
@@ -10,7 +11,9 @@ const notifyForSub = (sub) => {
     message: 'There\'s at least one new post in /r/' + sub + '!',
     wait: true
   }).on('click', () => {
-    console.log('CLICKED!')
+    opn('https://www.reddit.com/r/' + sub, {
+      app: ['chrome']
+    })
   })
 }
 
