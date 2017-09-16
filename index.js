@@ -22,29 +22,21 @@ const notifyForSub = (sub, latestPostTitle) => {
 }
 
 const writeToDiskState = (payloadAsObject) => {
-  fs.writeFile(diskStatePath, JSON.stringify(payloadAsObject), err => {
-    if (err) {
-      console.error(err)
-    }
-  })
+  fs.writeFileSync(diskStatePath, JSON.stringify(payloadAsObject))
 }
 
 const createDiskStateFileIfDoesntExist = () => {
   if (fs.existsSync(diskStatePath)) {
     return
   }
-  fs.writeFile(diskStatePath, '{}', err => {
-    if (err) {
-      console.log('ERROR: Could not create state file on disk!')
-    }
-  })
+  writeToDiskState({})
 }
 
 const loadStateFromDisk = () => {
   if (!fs.existsSync(diskStatePath)) {
     return {}
   }
-  return fs.readFileSync(diskStatePath)
+  return JSON.parse(fs.readFileSync(diskStatePath))
 }
 
 const tick = () => {
@@ -65,7 +57,7 @@ const tick = () => {
 const init = () => {
   createDiskStateFileIfDoesntExist()
   responses = loadStateFromDisk()
-  tick()
+  setTimeout(tick, 1000)
   setInterval(tick, callIntervalInSeconds * 1000)
 }
 
