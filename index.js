@@ -4,7 +4,7 @@ const opn = require('opn')
 const fs = require('fs')
 
 const subs = process.argv[2].split(',').map(sub => sub.trim())
-const callIntervalInSeconds = 10
+const callIntervalInSeconds = 30
 let responses = null
 const diskStatePath = __dirname + '/STATE'
 
