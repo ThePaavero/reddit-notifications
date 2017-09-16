@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.16.2",
+    "node-notifier": "^5.1.2"
+  }
+}
