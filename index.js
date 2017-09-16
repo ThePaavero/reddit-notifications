@@ -20,7 +20,7 @@ const notifyForSub = (sub, latestPostTitle) => {
 
 const tick = () => {
   subs.forEach(sub => {
-    axios.get('https://www.reddit.com/r/' + sub + '/.json').then(response => {
+    axios.get('https://www.reddit.com/r/' + sub + '/new/.json').then(response => {
       const latestPostId = response.data.data.children[0].data.id
       const previousResponse = responses[sub] ? responses[sub] : null
       if (previousResponse !== latestPostId) {
