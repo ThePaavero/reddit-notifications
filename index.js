@@ -4,6 +4,7 @@ const opn = require('opn')
 const fs = require('fs')
 
 const subs = process.argv[2].split(',').map(sub => sub.trim())
+const callIntervalInSeconds = 10
 let responses = null
 const diskStatePath = __dirname + '/STATE'
 
@@ -65,7 +66,7 @@ const init = () => {
   createDiskStateFileIfDoesntExist()
   responses = loadStateFromDisk()
   tick()
-  setInterval(tick, 10000)
+  setInterval(tick, callIntervalInSeconds * 1000)
 }
 
 init()
