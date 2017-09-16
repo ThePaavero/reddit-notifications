@@ -17,9 +17,7 @@ const notifyForSub = (sub, latestPostTitle, latestPostUrl) => {
     open: latestPostUrl
   })
   me.on('click', () => {
-    opn(latestPostUrl, {
-      app: ['chrome']
-    })
+    opn(latestPostUrl)
   })
 }
 

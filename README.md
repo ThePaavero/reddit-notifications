@@ -17,3 +17,6 @@ $ node index.js funny
 ```
 $ node index.js funny,interestingasfuck,programming
 ```
+
+## Bugs
+* The click listener will open ALL links, don't know why...
